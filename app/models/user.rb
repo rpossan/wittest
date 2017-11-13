@@ -1,5 +1,8 @@
 class User < ApplicationRecord
 	has_many :carts
 
-	scope :cart, -> { where(active: true) }
+	def cart
+		carts.where(active: true).last
+	end
+
 end
