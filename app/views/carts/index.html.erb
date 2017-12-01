@@ -1,27 +1,40 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Carts</h1>
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Shopping cart with pure javascript</title>
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+  
+  <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.3/css/foundation.min.css?ver=4.4.2'>
+  <link rel='stylesheet prefetch' href='https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css'>
+  <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/Ladda/0.9.8/ladda.min.css'>
 
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <link rel="stylesheet" href="css/style.css">
 
-  <tbody>
-    <% @carts.each do |cart| %>
-      <tr>
-        <td><%= cart.user %></td>
-        <td><%= link_to 'Show', cart %></td>
-        <td><%= link_to 'Edit', edit_cart_path(cart) %></td>
-        <td><%= link_to 'Destroy', cart, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  
+</head>
 
-<br>
+<body>
+    <div class="row">
 
-<%= link_to 'New Cart', new_cart_path %>
+    <a class="cart-icon">
+      <span id="totalItems">0</span>
+      <ul class="cart"></ul>
+    </a>
+  
+
+    <div class="productosWrapper large-12 columns">
+      
+    </div>
+
+  </div>
+  <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js?ver=1.11.2'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/Ladda/0.9.8/spin.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/Ladda/0.9.8/ladda.min.js'></script>
+
+  <script  src="js/index.js"></script>
+
+</body>
+</html>
