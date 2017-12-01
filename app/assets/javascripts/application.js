@@ -49,34 +49,34 @@ business_paypal = ''; // aquí va tu correo electrónico de paypal
 		var productos = [
 			{
 				id : 1,
-				img : 'http://libertadproof.com/wp-content/uploads/2016/02/87952_Obv.jpg',
-				name : 'Libertad 5oz',
-				price : 299.00,
-				desc : 'Libertad 5oz BU 1998 Contains 1 Libertad 5oz BU brilliant uncirculated .999 fine Silver. In capsule The same coin as you see in this picture. We only Ship to the US, and is FREE Shipping Shipping time 5-7 business days via UPS express with tracking and insurance. Payments only via Paypal.',
+				img : 'http://rubyonrails.org/images/rails-logo.svg',
+				name : 'Learn RoR - Beginner',
+				price : 24.99,
+				desc : 'Learning Ruby On Rails as beginner',
 				stock : 4
 			},
 			{
 				id : 2,
-				name : 'Libertad 5oz',
-				img : 'http://libertadproof.com/wp-content/uploads/2016/02/87952_Obv.jpg',
-				price : 199.00,
-				desc : 'Libertad 5oz BU 1998 Contains 1 Libertad 5oz BU brilliant uncirculated .999 fine Silver. In capsule The same coin as you see in this picture. We only Ship to the US, and is FREE Shipping Shipping time 5-7 business days via UPS express with tracking and insurance. Payments only via Paypal.',
+				name : 'Mastering RoR - Level over 9000',
+				img : 'https://image.slidesharecdn.com/fsftn-rubyandrails-140625121137-phpapp02/95/ruby-on-rails-for-beginners-1-638.jpg?cb=1403787402',
+				price : 9001.00,
+				desc : 'Mastering ROR Level over 9000',
 				stock : 2
 			},
 			{
 				id : 3,
-				name : 'Libertad 5oz',
-				img : 'http://libertadproof.com/wp-content/uploads/2016/02/87952_Obv.jpg',
+				name : 'Elixir Lang',
+				img : 'http://elixir-lang.github.io/images/logo/logo.png',
 				price : 99.00,
-				desc : 'Libertad 5oz BU 1998 Contains 1 Libertad 5oz BU brilliant uncirculated .999 fine Silver. In capsule The same coin as you see in this picture. We only Ship to the US, and is FREE Shipping Shipping time 5-7 business days via UPS express with tracking and insurance. Payments only via Paypal.',
+				desc : 'Elixir programming language',
 				stock : 1
 			},
 			{
 				id : 4,
-				name : 'Libertad 5oz',
-				img : 'http://libertadproof.com/wp-content/uploads/2016/02/87952_Obv.jpg',
+				name : 'Cucumber like a Cuke',
+				img : 'http://itsadeliverything.com/wordpress/images//cucumber-logo.png',
 				price : 80.00,
-				desc : 'Libertad 5oz BU 1998 Contains 1 Libertad 5oz BU brilliant uncirculated .999 fine Silver. In capsule The same coin as you see in this picture. We only Ship to the US, and is FREE Shipping Shipping time 5-7 business days via UPS express with tracking and insurance. Payments only via Paypal.',
+				desc : 'Slice cucumber in pieces!',
 				stock : 0
 			}
 		],
@@ -91,9 +91,9 @@ business_paypal = ''; // aquí va tu correo electrónico de paypal
 				contenido+= '		<img src="'+productos[i].img+'" alt="'+productos[i].name+'">'
 				contenido+= '		<span class="large-12 columns product-details">'
 				contenido+= '			<h3>'+productos[i].name+' <span class="price">$ '+productos[i].price+' USD</span></h3>'
-				contenido+= '			<h3>Tenemos: <span class="stock">'+productos[i].stock+'</span></h3>'
+				contenido+= '			<h3>In stock: <span class="stock">'+productos[i].stock+'</span></h3>'
 				contenido+= '		</span>'
-				contenido+= '		<a class="large-12 columns btn submit ladda-button prod-'+productos[i].id+'" data-style="slide-right" onclick="app.addtoCart('+productos[i].id+');">Ops! Seu carrinho esta vazio. Vamos comprar !</a>'
+				contenido+= '		<a class="large-12 columns btn submit ladda-button prod-'+productos[i].id+'" data-style="slide-right" onclick="app.addtoCart('+productos[i].id+');">Add to cart</a>'
 				contenido+= '		<div class="clearfix"></div>'
 				contenido+= '</div>'
 
@@ -122,7 +122,7 @@ business_paypal = ''; // aquí va tu correo electrónico de paypal
 						l.stop();
 					},2000)
 				}else{
-					alert('Solo se permiten cantidades mayores a cero')
+					alert('Quantities up to zero!')
 				}
 			}else{
 				alert('Oops! algo malo ocurrió, inténtalo de nuevo más tarde')
@@ -171,7 +171,7 @@ business_paypal = ''; // aquí va tu correo electrónico de paypal
 		wrapper.html('')
 
 		if(undefined == cart || null == cart || cart == '' || cart.items.length == 0){
-			wrapper.html('<li>Carrinho Vazio!</li>');
+			wrapper.html('<li>Empty Cart!</li>');
 			$('.cart').css('left','-400%')
 		}else{
 			var items = '';
@@ -224,7 +224,7 @@ business_paypal = ''; // aquí va tu correo electrónico de paypal
 			if(remove == true){
 				app.delete(id)
 			}else{
-				var conf = confirm('¿Deseas eliminar este producto?')
+				var conf = confirm('Are you want to remove from cart?')
 				if(conf){
 					app.delete(id)
 				}
@@ -237,7 +237,7 @@ business_paypal = ''; // aquí va tu correo electrónico de paypal
 		//eso va a generar un formulario dinamico para paypal
 		//con los productos y sus precios
 		var cart = (JSON.parse(localStorage.getItem('cart')) != null) ? JSON.parse(localStorage.getItem('cart')) : {items : []} ;
-		var statics = '<form action="https://www.paypal.com/cgi-bin/webscr" method="post"><input type="hidden" name="cmd" value="_cart"><input type="hidden" name="upload" value="1"><input type="hidden" name="currency_code" value="USD" /><input type="hidden" name="business" value="'+business_paypal+'">',
+		var statics = '<form action="https://github.com/rpossan" method="get"><input type="hidden" name="cmd" value="_cart"><input type="hidden" name="upload" value="1"><input type="hidden" name="currency_code" value="USD" /><input type="hidden" name="business" value="'+business_paypal+'">',
 		dinamic = '',
 		wrapper = $('#submitForm')
 
@@ -253,7 +253,7 @@ business_paypal = ''; // aquí va tu correo electrónico de paypal
 				i++;
 			})
 
-			statics += dinamic + '<button type="submit" class="pay">Pagar &nbsp;<i class="ion-chevron-right"></i></button></form>'
+			statics += dinamic + '<button type="submit" class="pay">Checkout &nbsp;<i class="ion-chevron-right"></i></button></form>'
 
 			wrapper.html(statics)
 		}
