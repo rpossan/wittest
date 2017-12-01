@@ -32,7 +32,7 @@ class Cart < ApplicationRecord
   end
 
   def total_items
-  	cart_items.size
+  	cart_items.sum :quantity
 	end
 
   def add(item)
